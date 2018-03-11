@@ -1,0 +1,14 @@
+version:  0.2
+
+phases:
+  pre_build:
+    commands:
+      - update-ca-certificates -f
+      - aws configure set s3.signature_version s3v4
+  build:
+    commands:
+      - echo Build started on `date`
+      - ./gradlew build
+artifacts:
+  files:
+    - 'build/libs/*.jar'
