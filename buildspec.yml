@@ -1,11 +1,13 @@
-version: 0.1
+version:  0.2
 
 phases:
   pre_build:
     commands:
-      - sudo update-ca-certificates -f
+      - add-apt-repository ppa:openjdk-r/ppa
+      - apt-get update
+      - apt-get install -y openjdk-8-jdk
+      - update-ca-certificates -f
       - aws configure set s3.signature_version s3v4
-      - sudo apt-get install -y openjdk-8-jdk
   build:
     commands:
       - echo Build started on `date`
