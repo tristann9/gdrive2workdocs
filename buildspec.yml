@@ -5,6 +5,7 @@ phases:
     commands:
       - sudo update-ca-certificates -f
       - aws configure set s3.signature_version s3v4
+      - sudo apt-get install -y openjdk-8-jdk
   build:
     commands:
       - echo Build started on `date`
